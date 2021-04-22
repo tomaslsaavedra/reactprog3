@@ -1,0 +1,26 @@
+.App {
+    text-align: center;
+}
+
+.card {
+    width: 400px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+body{
+    background-color: gray;
+}
+
+.container{
+    display: inline-flex;
+}
+
+.botones{
+    width: 100%
+}
