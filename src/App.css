@@ -3,13 +3,12 @@
 }
 
 .card {
-    width: 400px;
+    width: 300px;
     border-style: solid;
     border-color: black;
     border-width: 1px;
     padding: 30px;
     margin: 30px;
-    border-radius: 20px;
     background-color: white;
 }
 
