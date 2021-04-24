@@ -58,11 +58,29 @@ export default class App extends Component {
         <button onClick={this.agregar.bind(this)}>Agregar una tarjeta mas</button>
         <button onClick={this.borrartodas.bind(this)}>Borrar todas las tarjetas</button>
       </div>
-      <Main/>
-      <Main/>
-      <Main/>
-      <Main/>
-      <Main/>
+      {
+        this.state.items.map((item)=> {
+          return <Main onDelete={this.borrar.bind(this)}
+            key={item.login.uuid}
+            id={item.login.uuid}
+            name={item.name.first}
+            lastname={item.name.last}
+            image={item.picture.medium}
+            email={item.email}
+            birthdate={item.dob.date}
+            age={item.dob.age}
+            street={item.location.street.name}
+            street_number={item.location.street.number}
+            city={item.location.city}
+            state={item.location.state}
+            country={item.location.country}
+            postcode={item.location.postcode}
+            phone={item.phone}
+            registered={item.registered.date}
+              />
+        }
+        )
+      }
     </div>
   );
   }
