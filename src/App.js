@@ -50,6 +50,31 @@ export default class App extends Component {
       this.setState({items:[]});
     }
 
+    submit = () => {
+      if (document.querySelector(".nombre").value !== "") {
+          let busqueda = this.state.items.filter((item) =>{
+              return item.name.first === document.querySelector(".nombre").value;
+          })
+          this.setState({
+              items: busqueda
+          })
+      } else if (document.querySelector(".apellido").value !== "") {
+          let busqueda = this.state.items.filter((item) =>{
+              return item.name.last === document.querySelector(".apellido").value
+              ;
+          })
+          this.setState({
+              items: busqueda
+          })
+      } else if (document.querySelector(".edad").value !== "") {
+          let busqueda = this.state.items.filter((item) =>{
+              return parseInt(item.dob.age) === parseInt(document.querySelector(".edad").value);
+          })
+          this.setState({
+              items: busqueda
+          })
+      }
+    }
     
 
   render(){
@@ -59,6 +84,12 @@ export default class App extends Component {
         <input class="agregar" type="number"></input>
         <button onClick={this.agregar.bind(this)}>Agregar mas</button>
         <button onClick={this.borrartodas.bind(this)}>Borrar todas las tarjetas</button>
+      </div>
+      <div>
+        <input class="nombre" placeholder="Nombre"></input>
+        <input class="apellido" placeholder="Apellido"></input>
+        <input class="edad" placeholder="Edad"></input>
+        <button onClick={this.submit.bind(this)}>FILTRAR</button>
       </div>
       {
         this.state.items.map((item)=> {
