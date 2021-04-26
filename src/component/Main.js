@@ -22,10 +22,10 @@ export default class Child extends Component {
                     <img src={this.props.image} height="100" width="auto"></img>
                 </div>
                 <div> {this.props.email} </div>
-                <div> 666 años</div>
+                <div> {this.props.birthdate.substring(0, 10)} / {this.props.age} años</div>
                 <div> 
-                    <div> Buenos Aires </div>
-                    <div> +54 9 11 2185-0815 </div>
+                    <div> {this.props.state} - {this.props.country} </div>
+                    <div> {this.props.phone} </div>
                 </div>
                 <div>
                     <button class="boton" onClick={this.props.onDelete.bind (this,this.props.id)}>DELETE</button>

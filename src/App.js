@@ -27,16 +27,15 @@ export default class App extends Component {
 
 
     agregar() {
+      let mas = document.querySelector(".agregar").value 
+        fetch ("https://randomuser.me/api/?results=" + mas)
+        .then(resultado => resultado.json())
+        .then(items => {
+            items.results.map((item) => {
+            this.state.items.push(item)})
+            this.setState({items: this.state.items})
+        })
 
-      fetch('https://randomuser.me/api/')
-      .then(result=>result.json())
-      .then(data=> {
-        this.state.items.push(data.results[0]);
-        this.setState({items: this.state.items});
-        console.log(data.results);
-
-    
-    })
     }
 
     borrar(idTarjeta){
@@ -51,11 +50,14 @@ export default class App extends Component {
       this.setState({items:[]});
     }
 
+    
+
   render(){
   return (
     <div className="App">
       <div class="botones">
-        <button onClick={this.agregar.bind(this)}>Agregar una tarjeta mas</button>
+        <input class="agregar" type="number"></input>
+        <button onClick={this.agregar.bind(this)}>Agregar mas</button>
         <button onClick={this.borrartodas.bind(this)}>Borrar todas las tarjetas</button>
       </div>
       {
